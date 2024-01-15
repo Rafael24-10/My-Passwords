@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+.half {
+    flex: 1;
+    height: 100%;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+}
+
+
+.right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    background-color: black;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    gap: 20px;
+    height: 100vh;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+section h1 {
+    font-size: 3.0rem;
+    margin-top: 150px;
+    margin-right: 119px;
+}
+
+.text {
+    text-align: left;
+    column-count: 1;
+    column-gap: 20px;
+    max-width: 350px;
+    margin: 10px auto;
+    padding: 0px 5px 0px 5px;
+    
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 170px;
+    position: absolute;
+    top: 500px;
+
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 40px;
+    font-weight: 600;
+    transition: 0.5s;
+}
+
+a:hover {
+    background-color: rgb(40, 40, 194);
+}
+
+
+@media (max-width:792px) {
+    section h1 {
+        margin-right: 0px;
+    }
+    
+    .text {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    
+    .actions {
+        flex-direction: column;
+        top: 430px;
+        gap: 10px;
+        
+    }
+}
+
+@media (max-width:722px) {
+    .actions {
+        top: 460px;
+    }
+}
+
+@media(max-width:630px) {
+    .actions {
+        flex-direction: row;
+        gap: 70px;
+        top: 490px;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width:549px){
+    
+
+    .half {
+        flex: 0 1 auto;
+
+    }
+
+    .left{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    section h1 {
+        margin-top: 90px;
+        margin-right: 120px;
+    }
+
+
+
+    .right{
+        width: 100%;
+    }
+
+    body{
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+
+@media (max-width:388px){
+
+    section h1 {
+        margin-right: 0px;
+    }
+
+    .text{
+        text-align: center;
+    }
+}
+
+@media (max-width:324px){
+    a{
+        height: 25px;
+    }
+
+    .text{
+        margin: 0px auto 30px;
+
+    }
+}
+
+@media (max-width:269px){
+    section h1{
+        margin-top: 30px;
+    }
+}
