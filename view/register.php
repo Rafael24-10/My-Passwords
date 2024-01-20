@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
     $email = $_POST["email"];
 
-    //instatiates the hashing class and hashes the password
+    //instantiates the hashing class and hashes the password
     $hashing = new Hashing;
     $hashed_password = $hashing->bcrypt($password);
 
