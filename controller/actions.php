@@ -27,7 +27,7 @@ class Actions
         $stmt->store_result();
 
         if ($stmt->num_rows > 0) {
-            echo "<script>alert('Usuário ou email já existentes!')</script>";
+            echo "<script>alert('Username or email already exists!')</script>";
             echo '<script>
             setTimeout(function() {
                 window.location.href = "/meuphp/password_manager/view/index.php";
