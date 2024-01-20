@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'email' => $email
     ];
 
-    //instantiates the Actions class and registers a new user
+    //registers a new user
 
     $actions->Register($data, $conn);
 }
