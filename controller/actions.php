@@ -33,6 +33,7 @@ class Actions
                 window.location.href = "/meuphp/password_manager/view/index.php";
             }, 1000);
           </script>';
+            $stmt->close();
             exit();
         }
 
@@ -52,7 +53,7 @@ class Actions
             echo "<script>alert('Something went wrong creating your new account" . $stmt->error . "')</script>";
         }
 
-        $stmt->close();
+        
         $stmt1->close();
     }
 
