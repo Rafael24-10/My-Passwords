@@ -14,9 +14,6 @@ class Actions
         return $_SESSION["user_id"];
     }
 
-
-
-
     public function Register($data, $conn)
     {
         $username = $data["username"];
@@ -30,7 +27,7 @@ class Actions
             echo "<script>alert('Username or email already exists!')</script>";
             echo '<script>
             setTimeout(function() {
-                window.location.href = "/meuphp/password_manager/view/index.php";
+                window.location.href = "/var/www/html/password_manager/view/index.php";
             }, 1000);
           </script>';
             $stmt->close();
@@ -45,7 +42,7 @@ class Actions
             echo "<script>alert('Your new account has been created!')</script>";
             echo '<script>
             setTimeout(function() {
-                window.location.href = "/meuphp/password_manager/view/index.php";
+                window.location.href = "/var/www/html/password_manager/view/index.php";
             }, 1000);
           </script>';
             exit();
@@ -53,7 +50,7 @@ class Actions
             echo "<script>alert('Something went wrong creating your new account" . $stmt->error . "')</script>";
         }
 
-        
+
         $stmt1->close();
     }
 
@@ -83,7 +80,7 @@ class Actions
                 echo "<script>alert('Username or password not correct!')</script>";
                 echo '<script>
                 setTimeout(function() {
-                    window.location.href = "/meuphp/password_manager/view/index.php";
+                    window.location.href = "/var/www/html/password_manager/view/index.php";
                 }, 1000);
               </script>';
                 exit();
@@ -182,7 +179,7 @@ class Actions
             echo "<script>alert('User data updated')</script>";
             echo '<script>
             setTimeout(function() {
-                window.location.href = "/meuphp/password_manager/view/passwords.php";
+                window.location.href = "/var/www/html/password_manager/view/passwords.php";
             }, 1000);
           </script>';
             exit();
@@ -207,6 +204,4 @@ class Actions
             echo "error" . $conn->error;
         }
     }
-
-   
 }

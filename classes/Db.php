@@ -48,7 +48,7 @@ class Db
         return $result->fetch_assoc();
     }
 
-    public function prepareAndexecute($sql, $types, ...$params)
+    public function prepareAndExecute($sql, $types, ...$params)
     {
         $stmt = $this->conn->prepare($sql);
 
