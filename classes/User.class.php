@@ -22,10 +22,8 @@ class User extends Db
         $password = $data["master_password"];
         $sql = "SELECT * FROM users WHERE username = ? OR email = ?";
         $stmt = $this->prepareAndExecute($sql, "ss", $username, $email);
-
-        if ($stmt->num_rows > 0) {
-
-            $stmt->close();
+        $result = $this->fetchPrepared($stmt);
+        if ($result !== null) {
             return 1; //Código de erro para usuário ou email já existente
         }
 
@@ -33,7 +31,6 @@ class User extends Db
         $stmt = $this->prepareAndExecute($insertQuery, "sss", $username, $email, $password);
 
         if ($stmt) {
-            $stmt->close();
             return 0; //Código de sucesso
         } else {
             return 2; //Código de erro para falha na inserção
@@ -46,14 +43,12 @@ class User extends Db
         $password = $data["master_password"];
         $sql = "SELECT * FROM users WHERE username = ?";
         $stmt = $this->prepareAndExecute($sql, "s", $username);
+        $result = $this->fetchPrepared($stmt);
 
-        if ($stmt->num_rows === 1) {
-
-            $row = $this->fetchPrepared($stmt);
-
-            if (password_verify($password, $row["master_password"])) {
+        if ($result !== null) {
+            if (password_verify($password, $result["master_password"])) {
                 session_start();
-                $_SESSION["user_id"] = $row["user_id"];
+                $_SESSION["user_id"] = $result["user_id"];
                 return 0; //Código de sucesso
             } else {
                 return 2; //Código de erro para senha incorreta
@@ -83,7 +78,6 @@ class User extends Db
         $stmt = $this->prepareAndExecute($sql, "i", $id);
 
         if ($stmt) {
-            $stmt->close();
             return 0; //Usuário atualizado
         }
 
@@ -94,7 +88,7 @@ class User extends Db
     {
         $sql = "DELETE FROM users WHERE user_id = ?";
         $stmt = $this->prepareAndExecute($sql, "i", $id);
-        
+
         if ($stmt) {
             return 0; //Usuário deletado
         } else {
