@@ -1,0 +1,16 @@
+{
+    "require-dev": {
+        "pestphp/pest": "^2.34"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\Models\\": "src/classes/",
+            "App\\Controllers\\": "src/classes/"
+        }
+    }
+}
