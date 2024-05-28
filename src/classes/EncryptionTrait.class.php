@@ -2,11 +2,11 @@
 
 namespace App\Controller;
 
-class EncryptionController
+trait EncryptionTrait
 {
     /**
      * Hash a password using bcrypt algorithm.
-     * @param string $password The password to be hashed.
+     * @param string 
      * @return string The hashed password.
      */
 
