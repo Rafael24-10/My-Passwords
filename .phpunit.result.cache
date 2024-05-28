@@ -1,0 +1,1 @@
+{"version":1,"defects":{"Tests\\Unit\\DbTest::testFetchAll":7,"Tests\\Unit\\DbTest::testFetchPrepared":7},"times":{"Tests\\Unit\\DbTest::testFetchAll":0.12,"Tests\\Unit\\DbTest::testFetchOne":0.107,"Tests\\Unit\\DbTest::testPrepareAndExecute":0.292,"Tests\\Unit\\DbTest::testFetchPrepared":0.114}}

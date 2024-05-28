@@ -43,11 +43,12 @@ class Db
     {
         $result = $this->query($sql);
 
-        if ($result === false) {
+        if ($result == false) {
             return false;
-        }
+        } else {
 
-        return $result->fetch_assoc();
+            return $result->fetch_assoc();
+        }
     }
 
     public function prepareAndExecute($sql, $types, ...$params)

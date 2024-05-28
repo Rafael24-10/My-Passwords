@@ -1,6 +1,7 @@
 {
     "require-dev": {
-        "pestphp/pest": "^2.34"
+        "pestphp/pest": "^2.34",
+        "mockery/mockery": "^1.6"
     },
     "config": {
         "allow-plugins": {
@@ -9,8 +10,11 @@
     },
     "autoload": {
         "psr-4": {
+            "App\\": "src/",
+            "Tests\\": "tests/",
             "App\\Models\\": "src/classes/",
-            "App\\Controllers\\": "src/classes/"
+            "App\\Controllers\\": "src/classes/",
+            "App\\Traits\\": "src/classes/"
         }
     }
 }
