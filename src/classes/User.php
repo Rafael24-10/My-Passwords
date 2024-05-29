@@ -15,11 +15,11 @@ class User extends Db
 
     protected function fetchUser(int $id): array
     {
-        $sql = "Select * from users where id=$id";
+        $sql = "Select * from users where user_id=$id";
         return $this->fetchOne($sql);
     }
 
-    protected function createUser(array $data): int
+    public function createUser(array $data): int
     {
         $username = $data["username"];
         $email = $data["email"];

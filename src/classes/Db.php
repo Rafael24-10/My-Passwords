@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Termwind\Components\Dd;
+
 class Db
 {
     private $host = "localhost";
@@ -43,10 +45,9 @@ class Db
     {
         $result = $this->query($sql);
 
-        if ($result == false) {
+        if ($result === false || $result->num_rows === 0) {
             return false;
         } else {
-
             return $result->fetch_assoc();
         }
     }
@@ -70,7 +71,7 @@ class Db
     public function fetchPrepared($stmt)
     {
         $result = $stmt->get_result();
-        return $result->fetch_assoc(MYSQLI_ASSOC);
+        return $result->fetch_assoc();
     }
 
     public function __destruct()

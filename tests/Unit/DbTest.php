@@ -4,7 +4,6 @@ namespace Tests\Unit;
 
 use App\Models\Db;
 use PHPUnit\Framework\TestCase;
-// use Tests\TestCase;
 use Mockery;
 
 
@@ -88,7 +87,7 @@ class DbTest extends TestCase
 
         $result = $db->fetchOne('SELECT * FROM users WHERE user_id=1000');
 
-        $this->assertNull($result);
+        $this->assertFalse($result);
     }
 
     public function testPrepareAndExecute()
