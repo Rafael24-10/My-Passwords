@@ -66,7 +66,6 @@ class User extends Db
     {
         //todo: validar os inputs no usuário no controlador 
         //antes de passar para esse método
-
         $updateString = "";
 
         foreach ($data as $key => $value) {
@@ -75,9 +74,9 @@ class User extends Db
             }
 
             $updateString .= "$key = $value,";
-            $updateString = rtrim($updateString, ', ');
         }
 
+        $updateString = rtrim($updateString, ', ');
         $sql = "UPDATE users SET $updateString WHERE user_id = ?";
         $stmt = $this->prepareAndExecute($sql, "i", $id);
 

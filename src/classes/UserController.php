@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controllers;
 
 use App\Models\User;
 
@@ -31,7 +31,7 @@ class UserController extends User
         return $this->updateUser($id, $data);
     }
 
-    public function deleteUser(int $id): int
+    public function userDelete(int $id): int
     {
         return $this->destroyUser($id);
     }
