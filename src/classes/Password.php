@@ -21,8 +21,9 @@ class Password extends Db
     {
         $passwordName = $data["password_name"];
         $passwordValue = $data["password_value"];
-        $sql = "SELECT * FROM passwords WHERE password_name = ? AND user_id = ?";
-        $stmt = $this->prepareAndExecute($sql, "si", $passwordName, $passwordValue);
+        $userId = $data["user_id"];
+        $sql = "INSERT INTO passwords(password_name, password_value, user_id) VALUES(?, ?, ?)";
+        $stmt = $this->prepareAndExecute($sql, "ssi", $passwordName, $passwordValue, $userId);
 
         if ($stmt) {
             $stmt->close();
@@ -32,7 +33,7 @@ class Password extends Db
         }
     }
 
-    protected function updatepassword(int $PasswordId, array $data): int
+    protected function updatePassword(int $PasswordId, array $data): int
     {
         $updateString = "";
 
