@@ -32,7 +32,7 @@ class User extends Db
         }
 
         $insertQuery = "INSERT INTO users (username, master_password, email) VALUES(?, ?, ?)";
-        $stmt = $this->prepareAndExecute($insertQuery, "sss", $username, $email, $password);
+        $stmt = $this->prepareAndExecute($insertQuery, "sss", $username, $password, $email);
 
         if ($stmt) {
             return 0; //Código de sucesso

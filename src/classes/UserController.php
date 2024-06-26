@@ -3,9 +3,22 @@
 namespace App\Controllers;
 
 use App\Models\User;
+use App\Traits\AuthenticationTrait;
+use App\Traits\EncryptionTrait;
 
 class UserController extends User
 {
+
+    use EncryptionTrait;
+
+    public function isAuth(int $userId)
+    {
+        $isAuthenticated = new AuthenticationTrait($userId);
+        if (!$isAuthenticated) {
+            header("Location: login.php");
+        }
+    }
+
     public function allUsers(): array
     {
         return $this->all();
@@ -18,12 +31,51 @@ class UserController extends User
 
     public function userCreate(array $data): int
     {
-        return $this->createUser($data);
+        
+        $data['master_password'] = $this->hashPassword($data['master_password']);
+
+        switch ($this->createUser($data)) {
+            case 0:
+                header("location: dashboard.php");
+                exit();
+                break;
+
+            case 1:
+                echo "<script>alert('username or email already exists!')</script>";
+                $_SERVER = $_SERVER['PHP_SELF'];
+                return 1;
+                break;
+
+            case 2:
+                echo "<script>alert('Something went wrong creating your account, try again later')</script>";
+                $_SERVER = $_SERVER['PHP_SELF'];
+                return 2;
+                break;
+        }
     }
 
     public function userLogin(array $data): int
     {
-        return $this->login($data);
+
+
+        switch ($this->login($data)) {
+
+            case 0:
+
+                header("Location: dashboard.php");
+                return 0;
+                break;
+
+            case 1:
+                echo "<script>alert('Username not found!')</script>";
+                return 1;
+                break;
+
+            case 2:
+                echo "<script>alert('Incorrect password!')</script>";
+                return 2;
+                break;
+        }
     }
 
     public function userUpdate(int $id, array $data): int
