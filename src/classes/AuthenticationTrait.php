@@ -4,8 +4,8 @@ namespace App\Traits;
 
 trait AuthenticationTrait
 {
-    protected function isAuthenticated(int $userId): bool
+    protected function isAuthenticated(): bool
     {
-        return isset($_SESSION["user_id"]) && $_SESSION["user_id"] ===  $userId;
+        return isset($_SESSION["user_id"]);
     }
 }

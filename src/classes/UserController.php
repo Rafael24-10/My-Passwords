@@ -10,13 +10,23 @@ class UserController extends User
 {
 
     use EncryptionTrait;
+    use AuthenticationTrait;
 
-    public function isAuth(int $userId)
+    public function isAuth()
     {
-        $isAuthenticated = new AuthenticationTrait($userId);
-        if (!$isAuthenticated) {
+        if ($this->isAuthenticated() != true) {
             header("Location: login.php");
         }
+    }
+
+    public function decryptPasswords(array $passwords, string $key): array
+    {
+        foreach ($passwords as $password) {
+            $password['password_value'] = $this->decryptOpenSSL($password['password_value'], $key);
+            $decrypted[] = $password;
+        }
+
+        return $decrypted;
     }
 
     public function allUsers(): array
@@ -31,7 +41,7 @@ class UserController extends User
 
     public function userCreate(array $data): int
     {
-        
+
         $data['master_password'] = $this->hashPassword($data['master_password']);
 
         switch ($this->createUser($data)) {
