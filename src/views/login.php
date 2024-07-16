@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
                 <div class="register-link">
                     <p>Don't have an account?<a href="./register.php"> Register</a></p>
                 </div>
-                <h3><a href="../">My Passwords</a></h3>
+                <h3><a href="../../">My Passwords</a></h3>
 
             </form>
 

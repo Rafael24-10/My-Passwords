@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 <button type="submit">Create Account</button>
 
-                <h3><a href="../">My Passwords</a></h3>
+                <h3><a href="../../">My Passwords</a></h3>
 
 
 
