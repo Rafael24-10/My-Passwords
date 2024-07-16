@@ -46,7 +46,7 @@ class UserController extends User
 
         switch ($this->createUser($data)) {
             case 0:
-                header("location: dashboard.php");
+                header("location: login.php");
                 exit();
                 break;
 
@@ -90,11 +90,45 @@ class UserController extends User
 
     public function userUpdate(int $id, array $data): int
     {
-        return $this->updateUser($id, $data);
+        if (null == $data['username'] || null == $data['email']) {
+            echo "<script>
+            alert('There cannot be empty fields');
+            window.location.href = 'edit_profile.php';
+          </script>";
+            exit;
+        }
+        $update = $this->updateUser($id, $data);
+        switch ($update) {
+            case 0:
+                echo "<script>
+            alert('Your information has been updated');
+            window.location.href = 'dashboard.php';
+          </script>";
+                return 0;
+
+            case 1:
+                echo "<script>
+          alert('There was an error updating your data. Try again later.');
+          window.location.href = 'edit_profile.php';
+        </script>";
+                return 1;
+        }
     }
 
     public function userDelete(int $id): int
     {
-        return $this->destroyUser($id);
+        $delete =  $this->destroyUser($id);
+
+        switch ($delete) {
+            case 0:
+                header("Location: ../index.php");
+                return 0;
+
+            case 1:
+                echo "<script>
+            alert('There was an error deleting your account. Try again later.');
+            window.location.href = 'edit_profile.php';
+          </script>";
+        }
     }
 }

@@ -64,8 +64,6 @@ class User extends Db
 
     protected function updateUser(int $id, array $data): int
     {
-        //todo: validar os inputs no usuário no controlador 
-        //antes de passar para esse método
         $updateString = "";
 
         foreach ($data as $key => $value) {

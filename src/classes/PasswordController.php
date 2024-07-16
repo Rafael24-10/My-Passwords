@@ -20,7 +20,7 @@ class PasswordController extends Password
         $key = $userController->userGet($data['user_id']);
         $data['password_value'] = $this->encryptWithOpenSSL($data['password_value'], $key['master_password']);
 
-        if (null !== $data['password_name'] || null !== $data['password_value']) {
+        if (null == $data['password_name'] || null == $data['password_value']) {
             echo "<script>
             alert('There cannot be empty fields');
             window.location.href = 'dashboard.php';
@@ -50,7 +50,7 @@ class PasswordController extends Password
         $key = $userController->userGet($data['user_id']);
         $data['password_value'] = $this->encryptWithOpenSSL($data['password_value'], $key['master_password']);
 
-        if (null !== $data['password_name'] || null !== $data['password_value']) {
+        if (null == $data['password_name'] || null == $data['password_value']) {
             echo "<script>
             alert('There cannot be empty fields');
             window.location.href = 'dashboard.php';
