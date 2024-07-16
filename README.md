@@ -29,8 +29,11 @@ To run the project locally, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/your-username/my-passwords.git`.
 2. You need to have composer intalled. It can be downloaded [here](https://getcomposer.org/download/)
-3. Open the project in the terminal and run ´´´ composer install´´´
-4. A server is required to run the project such as APACHE or nginx.
+3. Open the project in the terminal and run ``` composer install ```.
+4. Jump into the Db.php file and set the credentials to your sql database.
+5. A server is required to run the project such as APACHE or nginx.
+6. Move the project inside your web server directory, '/var/www/html' in APACHE for example.
+7. Once the project is in the correct place, start the server and access the project in your localhost. 
 
 
 
