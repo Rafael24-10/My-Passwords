@@ -18,15 +18,15 @@ class PasswordController extends Password
     {
         $userController = new UserController();
         $key = $userController->userGet($data['user_id']);
-        $data['password_value'] = $this->encryptWithOpenSSL($data['password_value'], $key['master_password']);
 
         if (null == $data['password_name'] || null == $data['password_value']) {
             echo "<script>
             alert('There cannot be empty fields');
             window.location.href = 'dashboard.php';
-          </script>";
+            </script>";
             exit;
         }
+        $data['password_value'] = $this->encryptWithOpenSSL($data['password_value'], $key['master_password']);
         $create =  $this->createPassword($data);
 
 

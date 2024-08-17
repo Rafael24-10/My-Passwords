@@ -7,9 +7,9 @@ use Termwind\Components\Dd;
 class Db
 {
     private $host = "localhost";
-    private $username = "root";
-    private $password = "root";
-    private $database = "database";
+    private $username = "admin";
+    private $password = "93072394";
+    private $database = "password_manager";
     private $conn;
 
     public function __construct()

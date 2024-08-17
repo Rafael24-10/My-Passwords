@@ -121,7 +121,7 @@ class UserController extends User
 
         switch ($delete) {
             case 0:
-                header("Location: ../index.php");
+                header("Location: ../../");
                 return 0;
 
             case 1:
